@@ -95,11 +95,14 @@ class LinkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Link  $link
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Link $link)
+    public function destroy(Request $request)
     {
-        //
+        Link::destroy($request->linkid);
+        return response()->json([
+            'message' => 'Successfully deleted link!'
+        ]);
     }
 }
