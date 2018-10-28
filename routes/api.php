@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/links', function (Request $request) {
     return response (['link1','link2'],200);
 });
 
+Route::middleware('auth:api')->get('/categories', 'CategoryController@index');
+Route::middleware('auth:api')->post('/addcategory','CategoryController@create');
+Route::middleware('auth:api')->post('/addlink','LinkController@create');
+
+
 Route::group([
     'prefix' => 'auth'
 ], function () {
